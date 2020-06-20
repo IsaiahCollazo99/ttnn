@@ -1,14 +1,20 @@
 
-.search input[type=text] {
+.search{
+    position: relative;
+}
+
+.search input {
+    /* position: absolute; */
     float: left;
     padding: 6px 2px;
-    border-top: black;
-    border-left: black;
-    border-right: black;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
     margin-top: 2px;
     margin-right: 3px;
     margin-left: 5px;
     font-size: 17px;
+    width: 75%;
 }
 
 .fa-search{
@@ -19,6 +25,8 @@
     height: 35px;
     width: 35px;
     display: block;
+    
+
 } 
 
 .search button{
