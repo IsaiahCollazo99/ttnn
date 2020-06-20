@@ -10,6 +10,7 @@ const SearchBar =()=>{
     const search = useInput("")
 
     const handleSubmit=(e)=>{
+        
         if(search.value[0]==="#"){ //starting # hashtag search
             console.log(search.value.slice(1))
         }else{ //else search keyword
@@ -22,7 +23,7 @@ const SearchBar =()=>{
             <div>
                 <form className="search" onSubmit={handleSubmit}>
                 <button type="submit"><i className="fa-search"></i></button>
-                <input type="text" placeholder="#hashtag or keyword" name="search" {...search}></input>
+                <input type="text" placeholder="#hashtag or keyword" name="search" {...search} required></input>
                 </form>
             </div>
         )

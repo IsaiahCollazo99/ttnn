@@ -1,3 +1,4 @@
+
 .search input[type=text] {
     float: left;
     padding: 6px 2px;
@@ -12,12 +13,15 @@
 
 .fa-search{
     background: url("../icons//baseline_search_black_18dp.png");
-    margin-top: 2px;
-    height: 30px;
-    width: 30px;
+    /* margin-top: 2px; */
+    height: 35px;
+    width: 32px;
     display: block;
 } 
+
 .search button{
     margin-top: 2px;
+    background-color: #4bbff8;
+    border-radius: 20px;
 }
 
