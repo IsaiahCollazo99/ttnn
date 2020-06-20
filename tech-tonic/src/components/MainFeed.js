@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { fullStackPool } from "./dictionary/fullStackPool";
 import axios from 'axios';
 
 const MainFeed = () => {
