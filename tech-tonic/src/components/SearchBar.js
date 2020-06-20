@@ -10,7 +10,7 @@ const SearchBar =()=>{
     const search = useInput("")
 
     const handleSubmit=(e)=>{
-        e.preventdefault()
+        // e.preventdefault()
         if(search.value[0]==="#"){ //starting # hashtag search
             console.log(search.value.slice(1))
         }else{ //else search keyword
