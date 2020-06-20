@@ -16,7 +16,8 @@ const SearchBar =()=>{
         }else{ //else search keyword
             console.log(search.value)
         }
-        // history.push("/results")
+        //redirect to new path
+        history.push("/results")
     }
 
         return (
