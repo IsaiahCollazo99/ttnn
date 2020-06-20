@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fullStackPool } from "./dictionary/fullStackPool";
+import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
+import SearchBar from './SearchBar';
 
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
+    const [ userQueries, setUserQueries ] = useState({});
+    const [ dictionary, setDictionary ] = useState({});
     
     const getTweets = async () => {
         try {
@@ -27,10 +30,13 @@ const MainFeed = () => {
     })
 
     return (
-        <div>
-            <p>Feed Page</p>
-            {statusList}
-        </div>
+        <>
+            <SearchBar />
+            <div>
+                <p>Feed Page</p>
+                {statusList}
+            </div>
+        </>
     )
 }
 
