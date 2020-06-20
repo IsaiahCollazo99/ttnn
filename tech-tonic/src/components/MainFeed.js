@@ -6,11 +6,39 @@ import SearchBar from './SearchBar';
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
     const [ userQueries, setUserQueries ] = useState({});
-    const [ dictionary, setDictionary ] = useState({});
+
+    const objectLength = ( object ) => {
+        return Object.keys(object).length;
+    }
     
     const getTweets = async () => {
         try {
-            let res = await axios.get("/api/tweets?search=javascript");
+            const dictionary = objectLength(userQueries) ? userQueries : defaultQueries;
+            let query = "";
+            
+            for(let key in dictionary) {
+                const value = dictionary[key];
+                if(value) {
+                    let queryEnd;
+                    if(objectLength(userQueries)) {
+                        queryEnd = objectLength(userQueries) > 1 ? `${value} OR ` : value;
+                    } else {
+                        queryEnd = `${value} OR `;
+                    }
+                    query += queryEnd;
+                } else {
+                    continue;
+                }
+            }
+
+            let queryEnd = query.slice(-4);
+            if(queryEnd === " OR ") {
+                query = query.slice(0, -4);
+            }
+
+            let encodedQuery = encodeURIComponent(query);
+            
+            let res = await axios.get(`/api/tweets?search=${encodedQuery}`);
             setStatuses(res.data.statuses);
         } catch (error) {
             console.log(error);
