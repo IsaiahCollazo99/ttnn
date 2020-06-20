@@ -1,4 +1,6 @@
 import React from 'react'
+import {fullStackPool} from "./dictionary/fullStackPool";
+
 
 const MainFeed =()=> {
         return (

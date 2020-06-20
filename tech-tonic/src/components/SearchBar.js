@@ -4,7 +4,6 @@ import {useHistory} from "react-router-dom"
 import { useInput } from "../util/useInput";
 import axios from "axios"
 
-
 const SearchBar =()=>{
 
     const history = useHistory()
@@ -16,7 +15,6 @@ const SearchBar =()=>{
         }else{ //else search keyword
             console.log(search.value)
         }
-        //redirect to new path
         history.push("/results")
     }
 
