@@ -1,9 +1,13 @@
 import React from 'react'
 import "../css/search.css"
+import {useHistory} from "react-router-dom"
 import { useInput } from "../util/useInput";
+import axios from "axios"
 
 
 const SearchBar =()=>{
+
+    const history = useHistory()
     const search = useInput("")
 
     const handleSubmit=(e)=>{
@@ -12,12 +16,13 @@ const SearchBar =()=>{
         }else{ //else search keyword
             console.log(search.value)
         }
+        // history.push("/results")
     }
 
         return (
             <div>
-                <form onSubmit={handleSubmit}>
-                <button type="submit"><i className="search"></i></button>
+                <form className="search" onSubmit={handleSubmit}>
+                <button type="submit"><i className="fa-search"></i></button>
                 <input type="text" placeholder="#hashtag or keyword" name="search" {...search}></input>
                 </form>
             </div>

@@ -1,6 +1,23 @@
-.search{
+.search input[type=text] {
+    float: left;
+    padding: 6px 2px;
+    border-top: black;
+    border-left: black;
+    border-right: black;
+    margin-top: 2px;
+    margin-right: 3px;
+    margin-left: 5px;
+    font-size: 17px;
+}
+
+.fa-search{
     background: url("../icons//baseline_search_black_18dp.png");
+    margin-top: 2px;
     height: 30px;
     width: 30px;
     display: block;
+} 
+.search button{
+    margin-top: 2px;
 }
+
