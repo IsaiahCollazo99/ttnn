@@ -53,9 +53,14 @@ const MainFeed = () => {
     }
 
     const handleSearch = ( search ) => {
-        const newUserQueries = {...userQueries};
-        newUserQueries[search] = search;
-        setUserQueries({...newUserQueries});
+        if(!userQueries[search]) {
+            const newUserQueries = {...userQueries};
+            newUserQueries[search] = search;
+            setUserQueries({...newUserQueries});
+            debugger;
+        } else {
+            debugger;
+        }
     }
 
     useEffect(() => {
