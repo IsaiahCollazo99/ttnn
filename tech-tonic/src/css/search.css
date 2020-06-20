@@ -13,9 +13,11 @@
 
 .fa-search{
     background: url("../icons//baseline_search_black_18dp.png");
-    /* margin-top: 2px; */
+    /* background: url("../icons//search-24px.svg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 35px;
-    width: 32px;
+    width: 35px;
     display: block;
 } 
 
