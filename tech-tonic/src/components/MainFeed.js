@@ -59,6 +59,10 @@ const MainFeed = () => {
             const newUserQueries = {...userQueries};
             newUserQueries[search] = search;
             setUserQueries({...newUserQueries});
+<<<<<<< HEAD
+=======
+            // debugger;
+>>>>>>> 85c4898439cc517147986ac879e9c57faa97c043
         } else {
             // display error
         }
@@ -72,9 +76,13 @@ const MainFeed = () => {
         window.open(e, "_blank")
     }
     const statusList = statuses.map(status => {
+<<<<<<< HEAD
+=======
+        debugger
+>>>>>>> 85c4898439cc517147986ac879e9c57faa97c043
         return (
             <div className="status" key={status.id}>
-                <div className="user-profile" onClick={(e)=>handleProfClicked(status.user.url)}>
+                <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
                  <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
                  {status.user.name}
                  @{status.user.screen_name}
@@ -84,7 +92,8 @@ const MainFeed = () => {
     
                 <p>
                 {status.created_at.slice(0,19)}
-                </p>
+                </p> <i class="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
+                
                 <br></br>
                 </div>
             </div>

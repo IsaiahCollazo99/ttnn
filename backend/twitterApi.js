@@ -1,12 +1,13 @@
 const Twitter = require("twitter");
 const app = require("express")();
 const PORT = 3001;
+require('dotenv').config();
 
 const client = new Twitter({
-    consumer_key: 'LEiQwQnz6rqzS1Z4kSaeTaSKy',
-    consumer_secret: '2fhe1SPDpQbVqvaF1GnI813tGBhrrWj2tZmvGK0iQI0RWok2ar',
-    access_token_key: '1175831588828876800-5TgsZhmGx5HicAG8mXd29YyvbxVGSD',
-    access_token_secret: 'V5cuHhEe4oVEarWyEdWj6rNV12hD3QSJxFrk8icRBaju0'
+    consumer_key: process.env.CONSUMER_KEY,
+    consumer_secret: process.env.CONSUMER_SECRET,
+    access_token_key: process.env.ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET
 })
 
 const getTweets = async ( req, res ) => {
@@ -14,7 +15,7 @@ const getTweets = async ( req, res ) => {
         const { search } = req.query;
         const twitterQueries = {
             q: search,
-            result_type: "popular",
+            result_type: "mixed", //mixed recent popular
             lang: "en",
             tweet_mode:"extended"
         }
