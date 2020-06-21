@@ -1,29 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import logoImage from '../assets/TechTonic-LogoOnly.png'
+
 const StyledHeader = styled.div`
     display: flex;
-    height: 5rem;
+    height: 10rem;
     margin: 1rem;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
 `
 
 const Logo = styled.img`
-
+    height: 8rem;
+    width: 8rem;
 `
 
-const Name = styled.h1`
+const Name = styled.p`
     font-size: 6rem;
     font-family: 'Teko';
-    text-align: justify;
+    line-height: 6rem;
 `
 
 const Header = () => {
     return (
         <StyledHeader>
-            <Logo src='../../public/assets/TechTonic-LogoOnly.png' alt='Tech Tonic Logo' />
+            <Logo src={logoImage} alt='Tech Tonic Logo' />
             <Name> TECH TONIC </Name>
         </StyledHeader>
     )
