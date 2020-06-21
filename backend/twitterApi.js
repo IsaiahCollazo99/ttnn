@@ -1,6 +1,8 @@
 const Twitter = require("twitter");
 const app = require("express")();
 const PORT = 3001;
+require('dotenv').config();
+
 
 const client = new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
@@ -14,7 +16,7 @@ const getTweets = async ( req, res ) => {
         const { search } = req.query;
         const twitterQueries = {
             q: search,
-            result_type: "popular",
+            result_type: "mixed", //mixed recent popular
             lang: "en",
             tweet_mode:"extended"
         }
