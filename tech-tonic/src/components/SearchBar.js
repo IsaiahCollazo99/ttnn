@@ -1,21 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../css/search.css"
-import { useInput } from "../util/useInput";
 
 const SearchBar = ({ handleSearch })=>{
-
-    const search = useInput("")
+    const [ search, setSearch ] = useState("");
 
     const handleSubmit = ( e ) => {
         e.preventDefault();
-        handleSearch(search.value);
+        handleSearch(search);
+        setSearch("");
+    }
+
+    const handleChange = ( e ) => {
+        setSearch(e.target.value);
+    }
+
+    const searchObj = {
+        onChange: handleChange,
+        value: search
     }
 
         return (
             <div>
                 <form className="search" onSubmit={handleSubmit}>
                     <button type="submit"><i className="fa-search"></i></button>
-                    <input type="search" placeholder="#hashtag or keyword" {...search} required></input>
+                    <input type="search" placeholder="#hashtag or keyword" {...searchObj} required />
                 </form>
             </div>
         )

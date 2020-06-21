@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/userFilter.css';
 
 const UserFilter = ({ userQueries, onQueryDelete }) => {
 
@@ -7,7 +8,7 @@ const UserFilter = ({ userQueries, onQueryDelete }) => {
         for(let key in userQueries) {
             const value = userQueries[key];
             userQueriesList.push(
-                <div className="filterItem" title={value}>
+                <div className="filterItem" title={value} key={key}>
                     {value} <span onClick={onQueryDelete}>X</span>
                 </div>)
         }
