@@ -3,13 +3,13 @@ import styled from 'styled-components'
 
 import logoImage from '../assets/TechTonic-LogoOnly.png'
 
+
 const StyledHeader = styled.div`
     display: flex;
-    height: 10rem;
-    margin: 1rem;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: #121212;
 `
 
 const Logo = styled.img`
@@ -23,11 +23,12 @@ const Name = styled.p`
     line-height: 6rem;
 `
 
+
 const Header = () => {
     return (
         <StyledHeader>
             <Logo src={logoImage} alt='Tech Tonic Logo' />
-            <Name> TECH TONIC </Name>
+            <Name > TECH TONIC </Name>
         </StyledHeader>
     )
 }
