@@ -59,7 +59,7 @@ const MainFeed = () => {
             const newUserQueries = {...userQueries};
             newUserQueries[search] = search;
             setUserQueries({...newUserQueries});
-            debugger;
+            // debugger;
         } else {
             debugger;
         }
@@ -87,7 +87,8 @@ const MainFeed = () => {
     
                 <p>
                 {status.created_at.slice(0,19)}
-                </p>
+                </p> <i class="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
+                
                 <br></br>
                 </div>
             </div>
