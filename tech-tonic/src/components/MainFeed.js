@@ -55,6 +55,7 @@ const MainFeed = () => {
             let encodedQuery = encodeURIComponent(query);
             
             let res = await axios.get(`/api/tweets?search=${encodedQuery}`);
+            // debugger
             setStatuses(res.data.statuses);
         } catch (error) {
             console.log(error);
@@ -72,6 +73,7 @@ const MainFeed = () => {
     }
 
     const handleScrollBottom = () => {
+        // debugger
         setStatusLimit(statusLimit + 15);
     }
 
@@ -86,8 +88,10 @@ const MainFeed = () => {
     }
 
     const getStatusList = () => {
+        // debugger
         const statusList = [];
-        for(let i = 0; i < statuses.length; i++ ) {
+        let i = 0
+        for(i; i < statuses.length; i++ ) {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
@@ -103,15 +107,25 @@ const MainFeed = () => {
                             <p>
                                 {status.created_at.slice(0,19)}
                             </p> <i className="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
-                        
                             <br/>
                         </div>
                     </div>
                 )
-            } else {
-                break;
+            } 
+            else{
+                break
             }
         }
+        if (i>99){
+                statusList.push(
+                <>
+                <hr></hr>
+                 <br></br>
+                <p>You reach to the end of search results.</p>
+                 <br></br>
+                </>
+                )    
+            }
         return statusList;
     }
 
