@@ -59,10 +59,6 @@ const MainFeed = () => {
             const newUserQueries = {...userQueries};
             newUserQueries[search] = search;
             setUserQueries({...newUserQueries});
-<<<<<<< HEAD
-=======
-            // debugger;
->>>>>>> 85c4898439cc517147986ac879e9c57faa97c043
         } else {
             // display error
         }
@@ -76,10 +72,6 @@ const MainFeed = () => {
         window.open(e, "_blank")
     }
     const statusList = statuses.map(status => {
-<<<<<<< HEAD
-=======
-        debugger
->>>>>>> 85c4898439cc517147986ac879e9c57faa97c043
         return (
             <div className="status" key={status.id}>
                 <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
