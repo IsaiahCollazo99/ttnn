@@ -140,9 +140,8 @@ const MainFeed = () => {
 
     return (
         <>
-            <SearchBar handleSearch={handleSearch}/>
+            <SearchBar handleSearch={handleSearch} handleRefresh={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
-            <button onClick={getTweets} name="refresh button" className="refresh"><i class="fa fa-refresh"></i></button>
             <div className="feedPage">
                 {statusList}
             </div>
