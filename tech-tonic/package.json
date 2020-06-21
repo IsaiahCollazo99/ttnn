@@ -14,7 +14,8 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "twitter": "^1.7.1",
-    "typeface-roboto": "0.0.75"
+    "typeface-roboto": "0.0.75",
+    "typeface-teko": "0.0.72"
   },
   "scripts": {
     "start": "react-scripts start",
