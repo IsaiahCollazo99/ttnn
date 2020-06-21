@@ -121,7 +121,7 @@ const MainFeed = () => {
                 <>
                 <hr></hr>
                  <br></br>
-                <p>You reach to the end.</p>
+                <p>You reach to the end of search results.</p>
                  <br></br>
                 </>
                 )    
