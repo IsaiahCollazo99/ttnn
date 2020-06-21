@@ -1,6 +1,7 @@
 const Twitter = require("twitter");
 const app = require("express")();
 const PORT = 3001;
+require('dotenv').config();
 
 const client = new Twitter({
     consumer_key: process.env.CONSUMER_KEY,
