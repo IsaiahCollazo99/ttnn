@@ -38,7 +38,7 @@ const MainFeed = () => {
         return query;
     }
     
-    const getTweets = async ( search ) => {
+    const getTweets = async ( ) => {
         try {
             const dictionary = objectLength(userQueries) ? userQueries : defaultQueries;
             
@@ -74,10 +74,10 @@ const MainFeed = () => {
         //status.user.entities.url["urls"][0].url
     }
     const statusList = statuses.map(status => {
-        // debugger
+        debugger
         return (
             <div className="status" key={status.id}>
-                <div className="user-profile" onClick={(e)=>handleProfClicked(status.user.url)}>
+                <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
                  <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
                  {status.user.name}
                  @{status.user.screen_name}
