@@ -1,0 +1,13 @@
+.refresh{
+    position: relative;
+    border-radius: 25px;
+    width: 10%;
+    height: 10%;
+    padding: 2%;
+    border: #3700B3 solid;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.refresh:hover{
+    transform: rotate(320deg)
+}

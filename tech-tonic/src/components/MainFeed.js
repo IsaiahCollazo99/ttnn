@@ -4,6 +4,8 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import Message from "./Message"
 import UserFilter from './UserFilter';
+import "../css/refresh.css"
+
 
 
 
@@ -106,7 +108,7 @@ const MainFeed = () => {
         <>
             <SearchBar handleSearch={handleSearch}/>
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
-            <button onClick={getTweets}>Refresh Posts</button>
+            <button onClick={getTweets} name="refresh button" className="refresh"><i class="fa fa-refresh"></i></button>
             <div className="feedPage">
                 {statusList}
             </div>

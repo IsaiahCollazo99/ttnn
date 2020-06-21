@@ -18,7 +18,7 @@
 }
 
 .fa fa-search{
-    background: url("../icons//baseline_search_black_18dp.png");
+    /* background: url("../icons//baseline_search_black_18dp.png"); */
     /* background: url("../icons//search-24px.svg"); */
     background-repeat: no-repeat;
     background-size: cover;
