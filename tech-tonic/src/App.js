@@ -3,15 +3,15 @@ import { Route, Switch } from "react-router-dom";
 import styled from 'styled-components'
 import MainFeed from "./components/MainFeed"
 
-
 import GlobalStyle from './css/GlobalStyle'
+import Header from './components/Header'
+
 
 const Grid = styled.div`
   background-color: #121212;
-
   display: flex;
   flex-direction: row;
-  padding: 2%;
+  padding: 1rem;
 `
 const Column = styled.div`
   display: flex;
@@ -25,7 +25,8 @@ const App = () => {
     <GlobalStyle />
     <Grid >
       <Column size="25%" />
-      <Column size="50%" primary >
+      <Column size="50%" >
+        <Header />
         <Switch>
           <Route exact path="/" component={MainFeed} />
         </Switch>

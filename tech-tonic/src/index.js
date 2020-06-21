@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 import 'typeface-roboto'
+import 'typeface-teko'
 
 ReactDOM.render(
   <React.StrictMode>
