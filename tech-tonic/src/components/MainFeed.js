@@ -3,6 +3,7 @@ import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import Message from "./Message"
+import UserFilter from './UserFilter';
 
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
@@ -38,7 +39,7 @@ const MainFeed = () => {
         return query;
     }
     
-    const getTweets = async ( search ) => {
+    const getTweets = async ( ) => {
         try {
             const dictionary = objectLength(userQueries) ? userQueries : defaultQueries;
             
@@ -48,7 +49,6 @@ const MainFeed = () => {
             
             let res = await axios.get(`/api/tweets?search=${encodedQuery}`);
             setStatuses(res.data.statuses);
-            // debugger
         } catch (error) {
             console.log(error);
         }
@@ -59,9 +59,8 @@ const MainFeed = () => {
             const newUserQueries = {...userQueries};
             newUserQueries[search] = search;
             setUserQueries({...newUserQueries});
-            debugger;
         } else {
-            debugger;
+            // display error
         }
     }
 
@@ -71,10 +70,8 @@ const MainFeed = () => {
 
     const handleProfClicked =(e)=>{
         window.open(e, "_blank")
-        //status.user.entities.url["urls"][0].url
     }
     const statusList = statuses.map(status => {
-        // debugger
         return (
             <div className="status" key={status.id}>
                 <div className="user-profile" onClick={(e)=>handleProfClicked(status.user.url)}>
@@ -94,13 +91,18 @@ const MainFeed = () => {
         )
     })
 
-    
+    const onQueryDelete = ( e ) => {
+        const query = e.currentTarget.parentElement.title;
+        const newUserQueries = {...userQueries};
+        delete newUserQueries[query];
+        setUserQueries(newUserQueries);
+    }
 
     return (
         <>
             <SearchBar handleSearch={handleSearch}/>
-            <div>
-                <p>Feed Page</p>
+            <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
+            <div className="feedPage">
                 {statusList}
             </div>
         </>
