@@ -15,6 +15,7 @@ const Grid = styled.div`
 `
 const Column = styled.div`
   display: flex;
+  flex-direction: column;
   flex: ${ (props) => props.size ? props.size : 'auto' } 
 `
 
