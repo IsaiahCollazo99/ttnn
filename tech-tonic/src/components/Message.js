@@ -1,23 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-const Message =({text,id})=> {
-    // debugger
-
-    const handleProfClicked =(e)=>{
-        window.open(`https://twitter.com/i/web/status/${e}`, "_blank")
-    }
-    const textOnly = ()=>{
- 
+const Message =({ text, id })=> {
+    const textOnly = () => {
         if(text.slice(text.length-23, text.length-10) === "https://t.co/"){
             return (text.slice(0,text.length-24))
         }else{
             return text
         }
     }
+
+    const textRemovedLink = textOnly();
         return (
-            <div onClick={(e)=>handleProfClicked(id)}>
-                    {textOnly()}
-            </div>
+            <a href={`https://twitter.com/i/web/status/${id}`}>
+                    {textRemovedLink}
+            </a>
         )
     }
 

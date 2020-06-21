@@ -3,13 +3,9 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import Message from "./Message"
 import UserFilter from './UserFilter';
 import "../css/refresh.css"
-
-
-
-
+import Status from './Status';
 
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
@@ -81,32 +77,13 @@ const MainFeed = () => {
         getTweets();
     }, [ userQueries ])
 
-    const handleProfClicked =(e)=>{
-        window.open(e, "_blank")
-    }
-
     const getStatusList = () => {
         const statusList = [];
         for(let i = 0; i < statuses.length; i++ ) {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
-                    <div className="status" key={status.id}>
-                        <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
-                            <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
-                            {status.user.name}
-                            @{status.user.screen_name}
-                        </div>
-                        <div className="message" >
-                            <Message text={status.full_text} id={status.id_str} />
-            
-                            <p>
-                                {status.created_at.slice(0,19)}
-                            </p> <i className="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
-                        
-                            <br/>
-                        </div>
-                    </div>
+                    <Status status={status} />
                 )
             } else {
                 break;
@@ -126,8 +103,8 @@ const MainFeed = () => {
 
     return (
         <>
-            <SearchBar handleSearch={handleSearch}/>
-            <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
+            <SearchBar handleSearch={handleSearch} />
+            <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
             <button onClick={getTweets} name="refresh button" className="refresh"><i class="fa fa-refresh"></i></button>
             <div className="feedPage">
                 {statusList}
