@@ -17,7 +17,8 @@ const getTweets = async ( req, res ) => {
             q: search,
             result_type: "mixed", //mixed recent popular
             lang: "en",
-            tweet_mode:"extended"
+            tweet_mode:"extended",
+            count: 100
         }
         const data = await client.get("/search/tweets", twitterQueries);
         const { statuses } = data;
