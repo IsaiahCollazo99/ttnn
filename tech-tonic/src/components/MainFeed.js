@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
 import SearchBar from './SearchBar';
@@ -11,6 +12,7 @@ import UserFilter from './UserFilter';
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
     const [ userQueries, setUserQueries ] = useState({});
+    const [ statusLimit, setStatusLimit ] = useState(15);
 
     const objectLength = ( object ) => {
         return Object.keys(object).length;
@@ -67,6 +69,12 @@ const MainFeed = () => {
         }
     }
 
+    const handleScrollBottom = () => {
+        setStatusLimit(statusLimit + 15);
+    }
+
+    useBottomScrollListener(handleScrollBottom);
+
     useEffect(() => {
         getTweets();
     }, [ userQueries ])
@@ -74,26 +82,38 @@ const MainFeed = () => {
     const handleProfClicked =(e)=>{
         window.open(e, "_blank")
     }
-    const statusList = statuses.map(status => {
-        return (
-            <div className="status" key={status.id}>
-                <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
-                 <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
-                 {status.user.name}
-                 @{status.user.screen_name}
-                </div>
-                <div className="message" >
-                <Message text={status.full_text} id={status.id_str} />
-    
-                <p>
-                {status.created_at.slice(0,19)}
-                </p> <i class="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
-                
-                <br></br>
-                </div>
-            </div>
-        )
-    })
+
+    const getStatusList = () => {
+        const statusList = [];
+        for(let i = 0; i < statuses.length; i++ ) {
+            const status = statuses[i];
+            if(i < statusLimit ) {
+                statusList.push(
+                    <div className="status" key={status.id}>
+                        <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
+                            <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
+                            {status.user.name}
+                            @{status.user.screen_name}
+                        </div>
+                        <div className="message" >
+                            <Message text={status.full_text} id={status.id_str} />
+            
+                            <p>
+                                {status.created_at.slice(0,19)}
+                            </p> <i className="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
+                        
+                            <br/>
+                        </div>
+                    </div>
+                )
+            } else {
+                break;
+            }
+        }
+        return statusList;
+    }
+
+    const statusList = getStatusList();
 
     const onQueryDelete = ( e ) => {
         const query = e.currentTarget.parentElement.title;
