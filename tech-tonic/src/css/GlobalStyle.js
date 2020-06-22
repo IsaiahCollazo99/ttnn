@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
         line-height: 1.5rem;
         color: white;
+        height: 100%;
     }
     a{text-decoration:none; color:inherit; cursor:pointer;}
     figure{margin:0;}

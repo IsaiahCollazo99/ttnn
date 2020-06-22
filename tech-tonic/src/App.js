@@ -10,6 +10,7 @@ import geodesyImage from '../src/assets/Geodesy.jpg'
 
 
 const Grid = styled.div`
+  height: 100%;
   display: grid;
   background-color: black;
   grid-template-areas:
