@@ -76,10 +76,10 @@ const App = () => {
     <>
     <GlobalStyle />
     <Grid >
+      <SideStart mobile="mobile" />
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-      <SideStart mobile="mobile" />
       <Main>
         <MainFeed />
       </Main>

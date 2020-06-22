@@ -21,7 +21,7 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
     flex: 1;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2rem;
     border-radius: 1rem;
     border: 2px solid #121212;
@@ -36,6 +36,7 @@ const StyledInput = styled.input`
         border: 2px solid #4BBFF8;
         box-shadow: 0 0 2px 2px #4BBFF8;
     }
+    font-family: 'Teko'
 `
 
 const StyledButton = styled.button`

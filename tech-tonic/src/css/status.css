@@ -5,7 +5,11 @@
     padding: 10px;
     background-color: #282828;
     transition: ease-in-out 0.3s;
-    margin-bottom: 15px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    justify-content: center;
 }
 
 .status:hover {
@@ -18,12 +22,22 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
+    background-color: #666666;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    transition: ease-in-out 0.3s;
+}
+
+.user:hover {
+    background-color: #A3A3A3;
+    cursor: pointer;
+    border-color: #4BBFF8;
 }
 
 .user a {
     display: flex;
     flex-direction: row;  
-    margin-bottom: 10px;
+    align-items: center;
 }
 
 .user img {
@@ -39,15 +53,19 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    font-family: 'Teko';
 }
 
 .userName {
-    font-size: 22px;
+    font-size: 2.5rem;
+    vertical-align: middle;
+    margin-bottom: 0.5rem
 }
 
 .userScreenName {
-    font-size: 18px;
+    font-size: 2rem;
     color: rgb(184, 184, 184);
+    vertical-align: middle;
 }
 
 .statusText {
