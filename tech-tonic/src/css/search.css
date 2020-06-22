@@ -15,23 +15,26 @@
     margin-left: 5px;
     font-size: 17px;
     width: 75%;
+    border: 2px solid #E63E62;
+    transition: ease-in-out 0.3s;
 }
 
-.fa fa-search{
-    /* background: url("../icons//baseline_search_black_18dp.png"); */
-    /* background: url("../icons//search-24px.svg"); */
+.search input:focus {
+    outline: none;
+    border-color: #4BBFF8;
+}
+
+.search i {
     background-repeat: no-repeat;
     background-size: cover;
-    height: 35px;
-    width: 35px;
     display: block;
-    
-
+    font-size: 100%;
 } 
 
 .search button{
     margin-top: 2px;
     background-color: #4bbff8;
     border-radius: 20px;
+    height: 100%;
 }
 

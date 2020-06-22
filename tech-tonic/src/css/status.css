@@ -12,6 +12,7 @@
 .status:hover {
     background-color: #666666;
     cursor: pointer;
+    border-color: #4BBFF8;
 }
 
 .user {

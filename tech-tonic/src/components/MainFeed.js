@@ -87,7 +87,7 @@ const MainFeed = () => {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
-                    <Status status={status} />
+                    <Status status={status} key={status.id}/>
                 )
             } 
             else{
@@ -97,10 +97,8 @@ const MainFeed = () => {
         if (i>99){
                 statusList.push(
                 <>
-                <hr></hr>
-                 <br></br>
-                <p>You reach to the end of search results.</p>
-                 <br></br>
+                    <hr></hr>
+                    <p className="statusEnd" key={i}>You reach to the end of search results.</p>
                 </>
                 )    
             }
@@ -120,7 +118,7 @@ const MainFeed = () => {
         <>
             <SearchBar handleSearch={handleSearch} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
-            <button onClick={getTweets} name="refresh button" className="refresh"><i class="fa fa-refresh"></i></button>
+            <button onClick={getTweets} name="refresh button" className="refresh"><i className="fa fa-refresh"></i></button>
             <div className="feedPage">
                 {statusList}
             </div>

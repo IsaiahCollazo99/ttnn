@@ -20,12 +20,10 @@ const SearchBar = ({ handleSearch })=>{
     }
 
         return (
-            <div>
-                <form className="search" onSubmit={handleSubmit}>
-                    <button type="submit"><i className="fa fa-search"></i></button>
-                    <input type="search" placeholder="#hashtag or keyword" {...searchObj} required />
-                </form>
-            </div>
+            <form className="search" onSubmit={handleSubmit}>
+                <button type="submit"><i className="fa fa-search"></i></button>
+                <input type="search" placeholder="#hashtag or keyword" {...searchObj} required />
+            </form>
         )
     }
 

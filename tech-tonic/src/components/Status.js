@@ -54,7 +54,7 @@ const Status = ({ status }) => {
                         <p>{retweetCount}</p>
                     </i> 
 
-                    <i class="fa fa-heart">
+                    <i className="fa fa-heart">
                         <p>{favoriteCount}</p>
                     </i>
                 </div>
