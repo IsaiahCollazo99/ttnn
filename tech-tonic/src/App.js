@@ -27,7 +27,7 @@ export const mediaQueries = {
       ${styles}
   }`,
   tablet: (styles) => `
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1050px) {
     ${styles}
 }
   `,
