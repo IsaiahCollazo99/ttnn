@@ -1,0 +1,79 @@
+.status {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    border: 2px solid #E63E62;
+    padding: 10px;
+    background-color: #282828;
+    transition: ease-in-out 0.3s;
+    margin-bottom: 15px;
+}
+
+.status:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.user a {
+    display: flex;
+    flex-direction: row;  
+    margin-bottom: 10px;
+}
+
+.user img {
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+.user a:hover .userName {
+    text-decoration: underline;
+}
+
+.usersNames {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.userName {
+    font-size: 22px;
+}
+
+.userScreenName {
+    font-size: 18px;
+    color: rgb(184, 184, 184);
+}
+
+.statusText {
+    font-size: 16px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.createdAtDate {
+    margin-bottom: 10px;
+    color: rgb(184, 184, 184);
+}
+
+.statusActivity {
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+}
+
+.statusActivity i {
+    margin: 0 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.statusActivity i p {
+    margin-left: 3px;
+    font-family: 'Roboto', sans-serif;
+}

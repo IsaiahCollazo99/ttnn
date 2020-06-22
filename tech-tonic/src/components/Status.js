@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/status.css';
 
 const Status = ({ status }) => {
     const { 
@@ -21,28 +22,28 @@ const Status = ({ status }) => {
         if (textEnd === "https://t.co/") {
             const onlyText = fullText.slice(0, fullText.length - 24)
             return onlyText;
-        }
+        } else return fullText;
     }
 
     const textOnly = removeLink();
     
     return (
+        <a href={`https://twitter.com/i/web/status/${id}`} target="_blank" rel="noopener noreferrer">
         <div className="status" key={id}>
             <div className="user">
-                <img src={profilePicture} alt={`${user.name} Picture`}/> 
+                <a href={`https://twitter.com/${user.screen_name}`} target="_blank" rel="noopener noreferrer">
+                    <img src={profilePicture} alt={`${user.name}`}/> 
 
-                <div className="usersNames">
-                    <a href={`https://twitter.com/${user.screen_name}`} target="_blank">
-                        {user.name}
-                    </a>
-                    <p className="userScreenName">@{user.screen_name}</p>
-                </div>
-
-            </div>
-            <div className="statusText" >
-                <a href={`https://twitter.com/i/web/status/${id}`}>
-                    {textOnly}
+                    <div className="usersNames">
+                        <p className="userName">{user.name}</p>
+                        <p className="userScreenName">@{user.screen_name}</p>
+                    </div>
                 </a>
+            </div>
+
+
+            <div className="statusInfo" >
+                <p className="statusText">{textOnly}</p>
 
                 <p className="createdAtDate">
                     {createdAtCondensed}
@@ -50,11 +51,11 @@ const Status = ({ status }) => {
                 
                 <div className="statusActivity">
                     <i className="fa fa-refresh">
-                        {status.retweet_count}
+                        <p>{retweetCount}</p>
                     </i> 
 
                     <i class="fa fa-heart">
-                        {status.favorite_count}
+                        <p>{favoriteCount}</p>
                     </i>
                 </div>
 
@@ -64,6 +65,7 @@ const Status = ({ status }) => {
                 <br/>
             </div>
         </div>
+        </a>
     )
 }
 
