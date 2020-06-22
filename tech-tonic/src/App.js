@@ -11,8 +11,7 @@ import geodesyImage from '../src/assets/Geodesy.jpg'
 
 const Grid = styled.div`
   display: grid;
-  background-color: #121212;
-  padding: 1rem;
+  background-color: black;
   grid-template-areas:
     "sideStart header sideEnd"
     "sideStart main sideEnd";
@@ -33,22 +32,22 @@ const SideStart = styled.div`
   grid-area: sideStart;
   background-image: url(${geodesyImage});
   background-position: center;
-  background-size: 400%;
+  background-size: 500%;
   background-position: center;
-  opacity: 0.6;
   ${ (props) => props.mobile && mediaQueries[props.mobile](
     `background-image: none`
-  ) }
+  ) };
+  opacity: 0.3;
 `;
 const SideEnd = styled.div`
   grid-area: sideEnd;
   background-image: url(${geodesyImage});
-  background-size: 400%;
+  background-size: 500%;
   background-position: center;
-  opacity: 0.6;
   ${ (props) => props.mobile && mediaQueries[props.mobile](
     `background-image: none`
-  ) }
+  ) };
+  opacity: 0.3;
 `;
 
 const HeaderWrapper = styled.div`

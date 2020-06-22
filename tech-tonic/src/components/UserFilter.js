@@ -9,20 +9,20 @@ const FilterBar = styled.div`
     flex-flow: row wrap;
     justify-contents: flex-start;
     background-color: #121212;
-    margin: 1rem 0 1rem 0
+    padding: 1rem 0 1rem 0
 `
 
 const FilterItem = styled.div`
     background-color: #E63E62;
+    font-family: 'Teko';
     border: 2px solid white;
     border-radius: 1rem;
-    padding: 0.5rem;
-    font-size: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
     cursor: pointer;
     margin: 1rem;
     & > span {
         font-size: 1.5rem;
-        font-weight: 700;
         margin-left: 1rem;
     }
     &:hover,&:focus,&:active {
@@ -43,7 +43,7 @@ const UserFilter = ({ userQueries, onQueryDelete }) => {
             const value = userQueries[key];
             userQueriesList.push(
                 <FilterItem title={value} key={key} onClick={onQueryDelete}>
-                    {value} <span>X</span>
+                    {value.toUpperCase()} <span>X</span>
                 </FilterItem>)
         }
         return userQueriesList;
