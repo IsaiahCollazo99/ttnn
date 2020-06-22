@@ -115,7 +115,7 @@ const MainFeed = () => {
     }
 
     return (
-        <div className="mainFeed">
+        <div className="mainFeed" id="mainFeed">
             <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
             <div className="statusList">
