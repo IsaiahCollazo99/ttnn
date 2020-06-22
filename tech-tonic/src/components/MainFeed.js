@@ -3,10 +3,9 @@ import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
 import SearchBar from './SearchBar';
-import Message from "./Message"
 import UserFilter from './UserFilter';
-
-
+import "../css/mainFeed.css"
+import Status from './Status';
 
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
@@ -80,10 +79,6 @@ const MainFeed = () => {
         getTweets();
     }, [ userQueries ])
 
-    const handleProfClicked =(e)=>{
-        window.open(e, "_blank")
-    }
-
     const getStatusList = () => {
         // debugger
         const statusList = [];
@@ -92,21 +87,7 @@ const MainFeed = () => {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
-                    <div status={status} key={status.id}>
-                        <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
-                            <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
-                            {status.user.name}
-                            @{status.user.screen_name}
-                        </div>
-                        <div className="message" >
-                            <Message text={status.full_text} id={status.id_str} />
-            
-                            <p>
-                                {status.created_at.slice(0,19)}
-                            </p> <i className="fa fa-refresh"> {status.retweet_count}</i>   <i class="fa fa-heart"> {status.favorite_count}</i>
-                            <br/>
-                        </div>
-                    </div>
+                    <Status status={status} key={status.id}/>
                 )
             } 
             else{
@@ -116,10 +97,8 @@ const MainFeed = () => {
         if (i>=99){
                 statusList.push(
                 <>
-                <hr></hr>
-                 <br></br>
-                <p>End of Search Results</p>
-                 <br></br>
+                    <hr></hr>
+                    <p className="statusEnd" key={i}>You reach to the end of search results.</p>
                 </>
                 )    
             }
@@ -136,13 +115,13 @@ const MainFeed = () => {
     }
 
     return (
-        <>
-            <SearchBar handleSearch={handleSearch} handleRefresh={getTweets} />
-            <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
-            <div className="feedPage">
+        <div className="mainFeed" id="mainFeed">
+            <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
+            <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
+            <div className="statusList">
                 {statusList}
             </div>
-        </>
+        </div>
     )
 }
 

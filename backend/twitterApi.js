@@ -15,7 +15,7 @@ const getTweets = async ( req, res ) => {
         const { search } = req.query;
         const twitterQueries = {
             q: search,
-            result_type: "mixed", //mixed recent popular
+            result_type: "popular", //mixed recent popular
             lang: "en",
             tweet_mode:"extended",
             count: 100

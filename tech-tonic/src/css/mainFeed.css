@@ -1,0 +1,35 @@
+main {
+    align-self: center;
+    justify-self: center;
+}
+
+.mainFeed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+}
+
+.refresh {
+    position: relative;
+    border-radius: 25px;
+    width: fit-content;
+    padding: 10px;
+    border: #3700B3 solid;
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.refresh:hover {
+    transform: rotate(780deg)
+}
+
+.statusList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}

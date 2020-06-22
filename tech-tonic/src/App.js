@@ -63,6 +63,8 @@ const Main = styled.main`
   grid-area: main;
   display: flex;
   flex-direction: column;
+  align-self: center;
+  justify-self: center;
 `;
 
 
