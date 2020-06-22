@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "../css/search.css"
 
 import styled from 'styled-components'
 
@@ -10,7 +9,7 @@ const StyledSearchBar = styled.div`
     flex-direction: row;
     justify-content: center;
     background-color: #121212;
-    padding: 2rem;
+    padding: 1rem;
 `
 
 const StyledForm = styled.form`
@@ -26,8 +25,15 @@ const StyledInput = styled.input`
     border-radius: 1rem;
     border: 2px solid #121212;
     text-align: center;
-    & :hover {
-        border: ${ (props) => props.hover ? '2px solid #4BBFF8' : null}
+    margin-right: 1rem;
+    &:hover {
+        border: ${ (props) => props.hover ? '2px solid #4BBFF8' : null };
+        box-shadow: 0 0 2px 2px #4BBFF8;
+    }
+    &:focus {
+        outline: none;
+        border: 2px solid #4BBFF8;
+        box-shadow: 0 0 2px 2px #4BBFF8;
     }
 `
 
@@ -39,9 +45,13 @@ const StyledButton = styled.button`
     font-size: 2rem;
     color: white;
     border: 2px solid #121212;
-    & :hover {
+    &:hover {
         cursor:pointer;
-        border: ${ (props) => props.hover ? '2px solid #4BBFF8' : null}
+        color: #4BBFF8;
+        border: ${ (props) => props.hover ? '2px solid #4BBFF8' : null }
+    };
+    &:focus {
+        outline: none;
     }
 `
 

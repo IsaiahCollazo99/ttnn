@@ -5,10 +5,6 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import Message from "./Message"
 import UserFilter from './UserFilter';
-import "../css/refresh.css"
-
-
-
 
 
 const MainFeed = () => {
@@ -132,7 +128,7 @@ const MainFeed = () => {
     const statusList = getStatusList();
 
     const onQueryDelete = ( e ) => {
-        const query = e.currentTarget.parentElement.title;
+        const query = e.currentTarget.title;
         const newUserQueries = {...userQueries};
         delete newUserQueries[query];
         setUserQueries(newUserQueries);

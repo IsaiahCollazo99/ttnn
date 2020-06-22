@@ -21,7 +21,14 @@ const Logo = styled.img`
 const Name = styled.p`
     font-size: 6rem;
     font-family: 'Teko';
-    line-height: 6rem
+    line-height: 6rem;
+    &:hover {
+        color: #E63E62;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
 `
 
 
