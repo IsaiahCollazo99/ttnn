@@ -31,7 +31,10 @@
 .user:hover {
     background-color: #A3A3A3;
     cursor: pointer;
-    border-color: #4BBFF8;
+}
+
+.user:hover * {
+    color: #E63E62;
 }
 
 .user a {
@@ -65,7 +68,7 @@
 
 .userScreenName {
     font-size: 2rem;
-    color: rgb(184, 184, 184);
+    color: rgb(204, 204, 204);
     vertical-align: middle;
 }
 
@@ -93,9 +96,11 @@
     margin: 0 5px;
     display: flex;
     flex-direction: row;
+    color: #4BBFF8;
 }
 
 .statusActivity i p {
     font-family: 'Teko';
     margin-left: 3px;
+    color: white
 }
