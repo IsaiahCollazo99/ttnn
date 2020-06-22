@@ -127,7 +127,7 @@ const SearchFeed = () => {
         }
         if (i>=99){
                 statusList.push(
-                    <SearchResultEnd key={i}>End of Search Results.</SearchResultEnd>
+                    <SearchResultEnd key={i}>End of Search Results</SearchResultEnd>
                 )    
             }
         return statusList;
