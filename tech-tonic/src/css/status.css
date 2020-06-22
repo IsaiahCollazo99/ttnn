@@ -1,7 +1,6 @@
 .status {
     display: flex;
     flex-direction: column;
-    width: 90%;
     border: 2px solid #E63E62;
     padding: 10px;
     background-color: #282828;

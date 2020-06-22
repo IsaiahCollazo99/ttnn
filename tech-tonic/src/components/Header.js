@@ -24,7 +24,7 @@ const Name = styled.p`
     line-height: 6rem;
     &:hover {
         color: #E63E62;
-        cursor: default;
+        cursor: pointer;
     }
     &:focus {
         outline: none;
@@ -33,10 +33,16 @@ const Name = styled.p`
 
 
 const Header = () => {
+    
+    const handleScrollToTop = () => {
+            window.scrollTo({top: 0, behavior: 'smooth'});     
+    }
+    
+
     return (
         <StyledHeader>
             <Logo src={logoImage} alt='Tech Tonic Logo' />
-            <Name > TECH TONIC </Name>
+            <Name onClick={handleScrollToTop}> TECH TONIC </Name>
         </StyledHeader>
     )
 }

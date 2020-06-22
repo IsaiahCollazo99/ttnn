@@ -2,12 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { useBottomScrollListener } from 'react-bottom-scroll-listener';
 import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
+import styled from 'styled-components'
+
 import SearchBar from './SearchBar';
 import UserFilter from './UserFilter';
-import "../css/mainFeed.css"
 import Status from './Status';
 
-const MainFeed = () => {
+const MainFeed = styled.div`
+    height: 100%
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #121212;
+`
+
+const SearchResultEnd = styled.p`
+    font-family: 'Teko';
+    font-size: 3rem;
+    font-weight: 700;
+    color: #E63E62;
+    margin: 2rem;
+    background-color: #121212;
+`
+
+const SearchFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
     const [ userQueries, setUserQueries ] = useState({});
     const [ statusLimit, setStatusLimit ] = useState(15);
@@ -80,10 +100,9 @@ const MainFeed = () => {
     }, [ userQueries ])
 
     const getStatusList = () => {
-        // debugger
         const statusList = [];
         let i = 0
-        for(i; i < statuses.length; i++ ) {
+        for( i ; i < statuses.length; i++ ) {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
@@ -96,10 +115,7 @@ const MainFeed = () => {
         }
         if (i>=99){
                 statusList.push(
-                <>
-                    <hr></hr>
-                    <p className="statusEnd" key={i}>You reach to the end of search results.</p>
-                </>
+                    <SearchResultEnd key={i}>End of Search Results.</SearchResultEnd>
                 )    
             }
         return statusList;
@@ -115,15 +131,13 @@ const MainFeed = () => {
     }
 
     return (
-        <div className="mainFeed" id="mainFeed">
+        <MainFeed>
             <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
-            <div className="statusList">
-                {statusList}
-            </div>
-        </div>
+            {statusList}
+        </MainFeed>
     )
 }
 
 
-export default MainFeed
+export default SearchFeed
