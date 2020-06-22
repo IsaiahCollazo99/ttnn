@@ -10,27 +10,32 @@ import geodesyImage from '../src/assets/Geodesy.jpg'
 
 
 const Grid = styled.div`
-  height: 100%;
   display: grid;
-  background-color: black;
+  height: 100%;
+  background-color: #000000;
   grid-template-areas:
     "sideStart header sideEnd"
     "sideStart main sideEnd";
   grid-template-rows: 10rem 1fr;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 2fr 3fr 2fr;
 `;
 
 
-const mediaQueries = {
+export const mediaQueries = {
   mobile: (styles) => `
   @media only screen and (max-width: 760px) {
       ${styles}
-  }
+  }`,
+  tablet: (styles) => `
+  @media only screen and (max-width: 1050px) {
+    ${styles}
+}
   `,
 }
 
 const SideStart = styled.div`
   grid-area: sideStart;
+  height: 100%;
   background-image: url(${geodesyImage});
   background-position: center;
   background-size: 500%;
@@ -40,8 +45,10 @@ const SideStart = styled.div`
   ) };
   opacity: 0.3;
 `;
+
 const SideEnd = styled.div`
   grid-area: sideEnd;
+  height: 100%;
   background-image: url(${geodesyImage});
   background-size: 500%;
   background-position: center;
@@ -52,19 +59,19 @@ const SideEnd = styled.div`
 `;
 
 const HeaderWrapper = styled.div`
+  grid-area: header;
   position: sticky;
+  top: 0;
+  height: 100%;
   display: flex;
   align-items: center;
-  top: 0;
-  grid-area: header;
   background-color: #121212;
 `
 const Main = styled.main`
+  height: 100%;
   grid-area: main;
   display: flex;
   flex-direction: column;
-  align-self: center;
-  justify-self: center;
 `;
 
 
@@ -73,14 +80,12 @@ const App = () => {
     <>
     <GlobalStyle />
     <Grid >
+      <SideStart mobile="mobile" />
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-      <SideStart mobile="mobile" />
       <Main>
-        <Switch>
-          <Route exact path="/" component={MainFeed} />
-        </Switch>
+        <MainFeed />
       </Main>
       <SideEnd mobile="mobile" />
     </Grid >

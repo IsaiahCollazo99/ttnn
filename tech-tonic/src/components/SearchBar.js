@@ -4,12 +4,13 @@ import styled from 'styled-components'
 
 const StyledSearchBar = styled.div`
     position: sticky;
-    top: 10rem;
     display: flex;
+    top: 10rem;
     flex-direction: row;
     justify-content: center;
     background-color: #121212;
     padding: 1rem;
+    width: 100%;
 `
 
 const StyledForm = styled.form`
@@ -20,7 +21,7 @@ const StyledForm = styled.form`
 
 const StyledInput = styled.input`
     flex: 1;
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2rem;
     border-radius: 1rem;
     border: 2px solid #121212;
@@ -35,6 +36,7 @@ const StyledInput = styled.input`
         border: 2px solid #4BBFF8;
         box-shadow: 0 0 2px 2px #4BBFF8;
     }
+    font-family: 'Teko'
 `
 
 const StyledButton = styled.button`
@@ -79,7 +81,7 @@ const SearchBar = ({ handleSearch, handleRefresh })=>{
                     <StyledInput hover type="search" placeholder="#hashtag or keyword" {...searchObj} required />
                     <StyledButton hover type="submit"><i className="fa fa-search"></i></StyledButton>
                 </StyledForm>
-                <StyledButton hover onClick={handleRefresh} name="refresh button"><i class="fa fa-refresh"></i></StyledButton>
+                <StyledButton hover onClick={handleRefresh} name="refresh button"><i className="fa fa-refresh"></i></StyledButton>
             </StyledSearchBar>
         )
     }

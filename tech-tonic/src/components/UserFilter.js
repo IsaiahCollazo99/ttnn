@@ -22,7 +22,7 @@ const FilterItem = styled.div`
     cursor: pointer;
     margin: 1rem;
     & > span {
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin-left: 1rem;
     }
     &:hover,&:focus,&:active {
