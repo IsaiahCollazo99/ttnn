@@ -1,13 +1,17 @@
 .userFilter {
     display: flex;
     flex-direction: row;
+    padding-top: 10px;
+    width: 75%;
 }
 
 .filterItem {
-    border: 1px solid black;
+    border: 1px solid #E63E62;
     border-radius: 25px;
     padding: 10px 15px;
     margin: 0 10px;
+    font-size: 16px;
+    background-color: #282828;
 }
 
 .filterItem span {
