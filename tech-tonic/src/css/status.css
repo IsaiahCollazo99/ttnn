@@ -18,6 +18,10 @@
     border-color: #4BBFF8;
 }
 
+.status:hover i {
+    color: #E63E62;
+}
+
 .user {
     display: flex;
     flex-direction: row;
