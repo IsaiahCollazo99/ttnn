@@ -10,7 +10,7 @@ const StyledHeader = styled.div`
     justify-content: flex-start;
     align-items: center;
     background-color: #121212;
-    padding: 2rem;
+    padding: 1rem;
 `
 
 const Logo = styled.img`
@@ -24,7 +24,7 @@ const Name = styled.p`
     line-height: 6rem;
     &:hover {
         color: #E63E62;
-        cursor: pointer;
+        cursor: default;
     }
     &:focus {
         outline: none;
