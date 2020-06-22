@@ -7,6 +7,7 @@ import Message from "./Message"
 import UserFilter from './UserFilter';
 
 
+
 const MainFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
     const [ userQueries, setUserQueries ] = useState({});
@@ -91,7 +92,7 @@ const MainFeed = () => {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
-                    <div className="status" key={status.id}>
+                    <div status={status} key={status.id}>
                         <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
                             <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
                             {status.user.name}
@@ -117,7 +118,7 @@ const MainFeed = () => {
                 <>
                 <hr></hr>
                  <br></br>
-                <p>You reach to the end of search results.</p>
+                <p>End of Search Results</p>
                  <br></br>
                 </>
                 )    

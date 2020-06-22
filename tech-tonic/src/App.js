@@ -8,6 +8,7 @@ import Header from './components/Header'
 
 import geodesyImage from '../src/assets/Geodesy.jpg'
 
+
 const Grid = styled.div`
   display: grid;
   background-color: #121212;
@@ -19,6 +20,15 @@ const Grid = styled.div`
   grid-template-columns: 2fr 4fr 2fr;
 `;
 
+
+const mediaQueries = {
+  mobile: (styles) => `
+  @media only screen and (max-width: 760px) {
+      ${styles}
+  }
+  `,
+}
+
 const SideStart = styled.div`
   grid-area: sideStart;
   background-image: url(${geodesyImage});
@@ -26,6 +36,9 @@ const SideStart = styled.div`
   background-size: 400%;
   background-position: center;
   opacity: 0.6;
+  ${ (props) => props.mobile && mediaQueries[props.mobile](
+    `background-image: none`
+  ) }
 `;
 const SideEnd = styled.div`
   grid-area: sideEnd;
@@ -33,6 +46,9 @@ const SideEnd = styled.div`
   background-size: 400%;
   background-position: center;
   opacity: 0.6;
+  ${ (props) => props.mobile && mediaQueries[props.mobile](
+    `background-image: none`
+  ) }
 `;
 
 const HeaderWrapper = styled.div`
@@ -58,13 +74,13 @@ const App = () => {
       <HeaderWrapper>
         <Header />
       </HeaderWrapper>
-      <SideStart />
+      <SideStart mobile="mobile" />
       <Main>
         <Switch>
           <Route exact path="/" component={MainFeed} />
         </Switch>
       </Main>
-      <SideEnd />
+      <SideEnd mobile="mobile" />
     </Grid >
     </>
   );
