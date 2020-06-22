@@ -27,6 +27,18 @@ const SearchResultEnd = styled.p`
     background-color: #121212;
 `
 
+const Error = styled.div`
+    font-family: 'Teko';
+    font-size: 3rem;
+    font-weight: 700;
+    color: #E63E62;
+    margin: 2rem;
+    background-color: #121212;
+    text-align: center;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+`
+
 const SearchFeed = () => {
     const [ statuses, setStatuses ] = useState([]);
     const [ userQueries, setUserQueries ] = useState({});
@@ -135,6 +147,7 @@ const SearchFeed = () => {
             <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
             {statusList}
+            { !statusList.length ? <Error>NO SEARCH RESULTS!</Error> : null}
         </MainFeed>
     )
 }
