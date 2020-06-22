@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { mediaQueries } from '../App'
+
 import logoImage from '../assets/TechTonic-LogoOnly.png'
 
 
@@ -19,16 +21,24 @@ const Logo = styled.img`
 `
 
 const Name = styled.p`
-    font-size: 6rem;
+    padding-top: 1rem;
+    font-size: 8rem;
     font-family: 'Teko';
-    line-height: 6rem;
+    line-height: 8rem;
     &:hover {
         color: #E63E62;
         cursor: pointer;
-    }
+    };
     &:focus {
         outline: none;
-    }
+    };
+    ${ (props) => props.tablet && mediaQueries[props.tablet](
+    `
+        font-size: 5rem;
+        line-height: 5rem
+    `
+    )}
+};
 `
 
 
@@ -42,7 +52,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <Logo src={logoImage} alt='Tech Tonic Logo' />
-            <Name onClick={handleScrollToTop}> TECH TONIC </Name>
+            <Name onClick={handleScrollToTop} tablet="tablet"> TECH TONIC </Name>
         </StyledHeader>
     )
 }

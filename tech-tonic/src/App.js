@@ -17,15 +17,19 @@ const Grid = styled.div`
     "sideStart header sideEnd"
     "sideStart main sideEnd";
   grid-template-rows: 10rem 1fr;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 2fr 3fr 2fr;
 `;
 
 
-const mediaQueries = {
+export const mediaQueries = {
   mobile: (styles) => `
   @media only screen and (max-width: 760px) {
       ${styles}
-  }
+  }`,
+  tablet: (styles) => `
+  @media only screen and (max-width: 900px) {
+    ${styles}
+}
   `,
 }
 
