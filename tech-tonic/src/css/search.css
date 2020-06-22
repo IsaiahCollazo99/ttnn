@@ -1,11 +1,13 @@
 
 .search{
     position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
 }
 
 .search input {
-    /* position: absolute; */
-    float: left;
     padding: 6px 2px;
     border-top: transparent;
     border-left: transparent;

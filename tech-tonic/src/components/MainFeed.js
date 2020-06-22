@@ -115,14 +115,13 @@ const MainFeed = () => {
     }
 
     return (
-        <>
-            <SearchBar handleSearch={handleSearch} />
+        <div className="mainFeed">
+            <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
-            <button onClick={getTweets} name="refresh button" className="refresh"><i className="fa fa-refresh"></i></button>
-            <div className="feedPage">
+            <div className="statusList">
                 {statusList}
             </div>
-        </>
+        </div>
     )
 }
 

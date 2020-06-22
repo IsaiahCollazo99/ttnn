@@ -28,8 +28,8 @@ const Status = ({ status }) => {
     const textOnly = removeLink();
     
     return (
-        <a href={`https://twitter.com/i/web/status/${id}`} target="_blank" rel="noopener noreferrer">
         <div className="status" key={id}>
+            <a href={`https://twitter.com/i/web/status/${id}`} target="_blank" rel="noopener noreferrer">
             <div className="user">
                 <a href={`https://twitter.com/${user.screen_name}`} target="_blank" rel="noopener noreferrer">
                     <img src={profilePicture} alt={`${user.name}`}/> 
@@ -58,15 +58,10 @@ const Status = ({ status }) => {
                         <p>{favoriteCount}</p>
                     </i>
                 </div>
-
-                
-                
-            
-                <br/>
             </div>
+            </a>
         </div>
-        </a>
-    )
+        )
 }
 
 export default Status;
