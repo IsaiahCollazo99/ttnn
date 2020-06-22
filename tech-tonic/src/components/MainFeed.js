@@ -4,7 +4,7 @@ import defaultQueries from "./dictionary/defaultQueries";
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import UserFilter from './UserFilter';
-import "../css/refresh.css"
+import "../css/mainFeed.css"
 import Status from './Status';
 
 const MainFeed = () => {
