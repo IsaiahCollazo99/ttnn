@@ -5,9 +5,6 @@ import axios from 'axios';
 import SearchBar from './SearchBar';
 import Message from "./Message"
 import UserFilter from './UserFilter';
-import "../css/refresh.css"
-
-
 
 
 
@@ -95,7 +92,7 @@ const MainFeed = () => {
             const status = statuses[i];
             if(i < statusLimit ) {
                 statusList.push(
-                    <div className="status" key={status.id}>
+                    <div status={status} key={status.id}>
                         <div className="user-profile" onClick={()=>handleProfClicked(`https://twitter.com/${status.user.screen_name}`)}>
                             <img src={status.user.profile_image_url} alt="user-Profile-Img"/> 
                             {status.user.name}
@@ -121,7 +118,7 @@ const MainFeed = () => {
                 <>
                 <hr></hr>
                  <br></br>
-                <p>You reach to the end of search results.</p>
+                <p>End of Search Results</p>
                  <br></br>
                 </>
                 )    
@@ -132,7 +129,7 @@ const MainFeed = () => {
     const statusList = getStatusList();
 
     const onQueryDelete = ( e ) => {
-        const query = e.currentTarget.parentElement.title;
+        const query = e.currentTarget.title;
         const newUserQueries = {...userQueries};
         delete newUserQueries[query];
         setUserQueries(newUserQueries);
@@ -140,9 +137,8 @@ const MainFeed = () => {
 
     return (
         <>
-            <SearchBar handleSearch={handleSearch}/>
+            <SearchBar handleSearch={handleSearch} handleRefresh={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete}/>
-            <button onClick={getTweets} name="refresh button" className="refresh"><i class="fa fa-refresh"></i></button>
             <div className="feedPage">
                 {statusList}
             </div>
