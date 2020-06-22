@@ -147,7 +147,7 @@ const SearchFeed = () => {
             <SearchBar handleSearch={handleSearch} getTweets={getTweets} />
             <UserFilter userQueries={userQueries} onQueryDelete={onQueryDelete} />
             {statusList}
-            { !statusList.length ? <Error>NO SEARCH RESULTS</Error> : null}
+            { !statusList.length ? <Error>NO SEARCH RESULTS!</Error> : null}
         </MainFeed>
     )
 }
