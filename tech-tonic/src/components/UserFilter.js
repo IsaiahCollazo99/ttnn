@@ -29,6 +29,7 @@ const FilterItem = styled.div`
         ${ (props) => props.tablet && mediaQueries[props.tablet](
     `
         font-size: 1.5rem;
+        line-height: 1.5rem
     `
     )}
     }
@@ -42,6 +43,7 @@ const FilterItem = styled.div`
     ${ (props) => props.tablet && mediaQueries[props.tablet](
     `
         font-size: 1.5rem;
+        line-height: 1.5rem
     `
     )}
 `
