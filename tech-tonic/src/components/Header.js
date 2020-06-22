@@ -10,6 +10,7 @@ const StyledHeader = styled.div`
     justify-content: flex-start;
     align-items: center;
     background-color: #121212;
+    padding: 2rem;
 `
 
 const Logo = styled.img`
@@ -21,6 +22,13 @@ const Name = styled.p`
     font-size: 6rem;
     font-family: 'Teko';
     line-height: 6rem;
+    &:hover {
+        color: #E63E62;
+        cursor: pointer;
+    }
+    &:focus {
+        outline: none;
+    }
 `
 
 

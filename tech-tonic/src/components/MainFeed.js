@@ -94,7 +94,7 @@ const MainFeed = () => {
                 break
             }
         }
-        if (i>99){
+        if (i>=99){
                 statusList.push(
                 <>
                     <hr></hr>
@@ -108,7 +108,7 @@ const MainFeed = () => {
     const statusList = getStatusList();
 
     const onQueryDelete = ( e ) => {
-        const query = e.currentTarget.parentElement.title;
+        const query = e.currentTarget.title;
         const newUserQueries = {...userQueries};
         delete newUserQueries[query];
         setUserQueries(newUserQueries);
