@@ -17,7 +17,12 @@ const Grid = styled.div`
     "sideStart header sideEnd"
     "sideStart main sideEnd";
   grid-template-rows: 10rem 1fr;
-  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-columns: 2fr 4fr 2fr;
+  ${ (props) => props.mobile && mediaQueries[props.mobile](
+    `
+    grid-template-columns: 1fr 5fr 1fr;
+    `
+    )}
 `;
 
 
@@ -79,7 +84,7 @@ const App = () => {
   return (
     <>
     <GlobalStyle />
-    <Grid >
+    <Grid mobile="mobile" >
       <SideStart mobile="mobile" />
       <HeaderWrapper>
         <Header />

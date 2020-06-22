@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import { mediaQueries } from '../App'
+
 const FilterBar = styled.div`
     position: sticky;
     top: 16rem;
@@ -17,13 +19,18 @@ const FilterItem = styled.div`
     font-family: 'Teko';
     border: 2px solid white;
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 2rem;
     cursor: pointer;
     margin: 1rem;
     & > span {
         font-size: 2rem;
         margin-left: 1rem;
+        ${ (props) => props.tablet && mediaQueries[props.tablet](
+    `
+        font-size: 1.5rem;
+    `
+    )}
     }
     &:hover,&:focus,&:active {
             border: 2px solid #4BBFF8;
@@ -32,6 +39,11 @@ const FilterItem = styled.div`
                 color: #4BBFF8;
             }
         };
+    ${ (props) => props.tablet && mediaQueries[props.tablet](
+    `
+        font-size: 1.5rem;
+    `
+    )}
 `
 
 
@@ -42,8 +54,8 @@ const UserFilter = ({ userQueries, onQueryDelete }) => {
         for(let key in userQueries) {
             const value = userQueries[key];
             userQueriesList.push(
-                <FilterItem title={value} key={key} onClick={onQueryDelete}>
-                    {value.toUpperCase()} <span>X</span>
+                <FilterItem title={value} key={key} onClick={onQueryDelete} tablet="tablet">
+                    {value.toUpperCase()} <span tablet="tablet">X</span>
                 </FilterItem>)
         }
         return userQueriesList;
