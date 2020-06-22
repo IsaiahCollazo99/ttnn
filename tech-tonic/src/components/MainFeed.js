@@ -103,7 +103,7 @@ const MainFeed = () => {
             
                             <p>
                                 {status.created_at.slice(0,19)}
-                            </p> <i className="fa fa-refresh">{status.retweet_count}</i> <i class="fa fa-heart">{status.favorite_count}</i>
+                            </p> <i className="fa fa-refresh"> {status.retweet_count}</i>   <i class="fa fa-heart"> {status.favorite_count}</i>
                             <br/>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ const MainFeed = () => {
                 break
             }
         }
-        if (i>99){
+        if (i>=99){
                 statusList.push(
                 <>
                 <hr></hr>
